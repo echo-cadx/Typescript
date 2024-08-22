@@ -1,15 +1,20 @@
 "use strict";
-const getName = (name) => {
-    return name;
-};
-const AddTwoNumbers = (num1 = 0, num2 = 0) => {
-    return num1 + num2;
-};
-const ConcatStringAndAmount = (message, result) => {
-    return message + result;
-};
-const my_name = "Elmer Toledo";
-const sum_amount = AddTwoNumbers(5, 2);
-console.log(getName(my_name));
-console.log(sum_amount);
-console.log(ConcatStringAndAmount("The sum is ", sum_amount));
+let idNextSeries = 0;
+let menuList = [];
+function AddMenu(name, price) {
+    let menuitem = {
+        id: ++idNextSeries,
+        name: name,
+        price: price
+    };
+    //console.log(menuitem)
+    menuList.push(menuitem);
+}
+function FetchMenuList() {
+    console.table(menuList);
+}
+AddMenu("Mekus Mekus Creamy Spinach", 799.00);
+AddMenu("Mekus Mekus Ultimate Mash up", 699.00);
+AddMenu("Mekus Mekus All Meat", 500.00);
+AddMenu("Creamy Spinach Sushi Bake", 395.00);
+FetchMenuList();

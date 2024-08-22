@@ -1,23 +1,31 @@
-
-
-const getName = (name : string)=>{
-
-    return name;
+interface menu_i{
+    id : number,
+    name : string,
+    price : number
 }
 
-const AddTwoNumbers = (num1:number = 0,num2 :number = 0) => {
+let idNextSeries : number = 0;
+let menuList  : menu_i[] = [];
 
-    return num1 + num2;
+function AddMenu(name : string,price:number){
+    let menuitem : menu_i = {
+        id : ++idNextSeries,
+        name : name,
+        price : price
+    }
+    //console.log(menuitem)
+    menuList.push(menuitem);
 }
 
-const ConcatStringAndAmount = (message : string,result : number) =>{
-    return message + result;
+function FetchMenuList(){
+    console.table(menuList)
 }
 
-const my_name : string = "Elmer Toledo"
-const sum_amount  = AddTwoNumbers(5,2);
 
 
-console.log(getName(my_name));
-console.log(sum_amount);
-console.log(ConcatStringAndAmount("The sum is ",sum_amount));
+AddMenu("Mekus Mekus Creamy Spinach",799.00)
+AddMenu("Mekus Mekus Ultimate Mash up",699.00)
+AddMenu("Mekus Mekus All Meat",500.00)
+AddMenu("Creamy Spinach Sushi Bake",395.00)
+FetchMenuList()
+
